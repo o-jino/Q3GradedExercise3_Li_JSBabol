@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <button onclick="refresh()">Generate a new number</button>
+    <script>
+ var randnum = parseInt(Math.random() *1001);
+        var randnumlabel = "Randomly Generated Number: ";
+        var text = randnumlabel.concat(randnum);
+        document.write(text + "<br><br>");
+
+        var ones = randnum % 10;
+        var tens = parseInt((((randnum % 100) /10)*10) - ones); /* Math.floor((rng % 100) /10) */
+        var hundreds = parseInt(((randnum/100)*100) - (tens + ones)); /* Math.floor(rng/100) */
+        var thousands = randnum - (randnum%1000);
+        document.write(`Breakdown: ${thousands}, ${hundreds}, ${tens}, ${ones} <br><br>`);
+
+        var date = new Date ();
+        document.write(date);
+        function refresh() {
+        location.reload(); // Reloads the current page
+        }
+    </script>
+</body>
+</html>
